@@ -53,7 +53,11 @@ class Word {
 
   // implement the updateScreen function:
    updateScreen() {
+    remainingGuessesEl.textContent = this.remainingGuesses
+
+    incorrectGuessesEl.textContent = this.incorrectLetters
     
+    wordToGuess.textContent = this.displayWord
    }
 
   // implement the isGameOver function:

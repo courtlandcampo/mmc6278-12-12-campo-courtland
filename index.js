@@ -16,6 +16,11 @@ let wins = 0
 let losses = 0
 let currentWord
 
+const remainingGuessesEl = document.getElementById('remaining-guesses')
+const incorrectGuessesEl = document.getElementById('incorrect-letters')
+const wordToGuess = document.getElementById('word-to-guess')
+
+
 class Word {
   constructor(word) {
     this.word = word
@@ -26,16 +31,36 @@ class Word {
   }
 
   // implement the guessLetter function:
-  // guessLetter(letter) {}
+  guessLetter(letter) {
+    if (this.word.indexOf(letter) > -1){
+      var answerArray = []
+      for (let i = 0; i < this.word.length; i++) {
+        if (this.word[i] == letter){ 
+          answerArray.push(letter)
+        } else { 
+          answerArray.push(this.displayWord[i])
+        }
+      }
+
+      this.displayWord = answerArray.join("")
+      this.correctLetters.push(letter)
+
+    } else { 
+      this.remainingGuesses--
+      this.incorrectLetters.push(letter)
+    }
+  }
 
   // implement the updateScreen function:
-  // updateScreen() {}
+   updateScreen() {
+    
+   }
 
   // implement the isGameOver function:
-  // isGameOver() {}
+  isGameOver() {}
 
   // implement the getWinOrLoss function:
-  // getWinOrLoss() {}
+  getWinOrLoss() {}
 }
 
 function newGame() {

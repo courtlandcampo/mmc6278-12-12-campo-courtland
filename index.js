@@ -61,7 +61,13 @@ class Word {
    }
 
   // implement the isGameOver function:
-  isGameOver() {}
+  isGameOver() {
+    if (this.remainingGuesses <= 0 || this.word == this.displayWord) {
+      return true
+    } else {
+      return false
+    }
+  }
 
   // implement the getWinOrLoss function:
   getWinOrLoss() {}
